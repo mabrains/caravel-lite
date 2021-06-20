@@ -46,14 +46,14 @@ endif
 		-v $(PDK_ROOT):$(PDK_ROOT) \
 		-v $(PWD)/..:/project \
 		-e PDK_ROOT=$(PDK_ROOT) \
-		-u $(shell id -u $(USER)):$(shell id -g $(USER)) \
+		-u 0 \
 		$(OPENLANE_IMAGE_NAME) sh -c $(OPENLANE_INTERACTIVE_COMMAND);\
 	else\
 		docker run -it -v $(OPENLANE_ROOT):/openLANE_flow \
 		-v $(PDK_ROOT):$(PDK_ROOT) \
 		-v $(PWD)/..:/project \
 		-e PDK_ROOT=$(PDK_ROOT) \
-		-u $(shell id -u $(USER)):$(shell id -g $(USER)) \
+		-u 0 \
 		$(OPENLANE_IMAGE_NAME) sh -c $(OPENLANE_BASIC_COMMAND);\
 	fi
 	mkdir -p ../signoff/$*/
